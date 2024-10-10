@@ -2,7 +2,57 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container my-5">
+    <div class="text-center">
+        <h1 class="display-4 text-primary">Bem-vindo à VrumVrumCar!</h1>
+        <p class="lead text-muted">Encontre o carro dos seus sonhos na nossa loja de carros.</p>
+    </div>
+
+    <!-- Seção de Destaques -->
+    <div class="row text-center my-5">
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <img class="card-img-top" src="~/images/car1.jpg" alt="Carro 1">
+                <div class="card-body">
+                    <h5 class="card-title">Carros Novos</h5>
+                    <p class="card-text">Veja nossa seleção de carros novos com as melhores ofertas!</p>
+                    <a href="@Url.Action("Index", "Carro")" class="btn btn-primary">Ver Carros</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <img class="card-img-top" src="~/images/car2.jpg" alt="Carro 2">
+                <div class="card-body">
+                    <h5 class="card-title">Carros Usados</h5>
+                    <p class="card-text">Ótimas opções de carros seminovos em excelente estado.</p>
+                    <a href="@Url.Action("Index", "Carro")" class="btn btn-primary">Ver Usados</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <img class="card-img-top" src="~/images/car3.jpg" alt="Carro 3">
+                <div class="card-body">
+                    <h5 class="card-title">Venda seu Carro</h5>
+                    <p class="card-text">Quer vender seu carro? Consulte nossas condições e venda com segurança.</p>
+                    <a href="@Url.Action("Create", "Carro")" class="btn btn-primary">Vender Carro</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Seção Sobre a Empresa -->
+    <div class="row my-5">
+        <div class="col-md-6">
+            <img src="~/images/dealership.jpg" class="img-fluid rounded" alt="Concessionária VrumVrumCar">
+        </div>
+        <div class="col-md-6">
+            <h2>Sobre a VrumVrumCar</h2>
+            <p>A VrumVrumCar é a sua concessionária de confiança, oferecendo os melhores carros novos e usados com condições imperdíveis. Com anos de experiência no mercado, garantimos a melhor qualidade e atendimento.</p>
+            <a href="@Url.Action("Index", "Sobre")" class="btn btn-outline-primary">Saiba Mais</a>
+        </div>
+    </div>
 </div>

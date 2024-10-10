@@ -1,4 +1,9 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using VrumVrumCar.Data;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<VrumVrumCarContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("VrumVrumCarContext") ?? throw new InvalidOperationException("Connection string 'VrumVrumCarContext' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

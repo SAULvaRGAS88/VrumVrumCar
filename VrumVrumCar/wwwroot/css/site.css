@@ -1,18 +1,23 @@
-html {
-  font-size: 14px;
+h1.display-4 {
+    font-weight: bold;
+    color: #007bff; /* Azul do Bootstrap */
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+.card {
+    border-radius: 15px;
+    transition: transform 0.2s ease-in-out;
 }
 
-html {
-  position: relative;
-  min-height: 100%;
+    .card:hover {
+        transform: scale(1.05);
+        cursor: pointer
+    }
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
 }
 
-body {
-  margin-bottom: 60px;
+.btn-primary, .btn-outline-primary {
+    border-radius: 50px;
 }
