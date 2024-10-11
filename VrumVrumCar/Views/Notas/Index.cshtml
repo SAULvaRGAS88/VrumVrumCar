@@ -1,71 +1,47 @@
 ﻿@model IEnumerable<VrumVrumCar.Models.Nota>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Notas";
 }
 
-<h1>Index</h1>
+<div class="container mt-5">
+    <h1 class="text-center">@ViewData["Title"]</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Numero)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DataEmissao)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Garantia)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ValorVenda)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cliente)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Vendedor)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Carro)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Numero)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DataEmissao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Garantia)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ValorVenda)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cliente.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Vendedor.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Carro.Id)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    <p class="text-right">
+        <a asp-action="Create" class="btn btn-primary">Criar Nova Nota</a>
+    </p>
+
+    <table class="table table-striped">
+        <thead class="thead-light">
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.First().Numero)</th>
+                <th>@Html.DisplayNameFor(model => model.First().DataEmissao)</th>
+                <th>@Html.DisplayNameFor(model => model.First().Garantia)</th>
+                <th>@Html.DisplayNameFor(model => model.First().ValorVenda)</th>
+                <th>@Html.DisplayNameFor(model => model.First().Cliente)</th>
+                <th>@Html.DisplayNameFor(model => model.First().Vendedor)</th>
+                <th>@Html.DisplayNameFor(model => model.First().Carro)</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Numero)</td>
+                    <td>@Html.DisplayFor(modelItem => item.DataEmissao)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Garantia)</td>
+                    <td>@Html.DisplayFor(modelItem => item.ValorVenda)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Cliente.Nome)</td> <!-- Exibindo o nome do cliente -->
+                    <td>@Html.DisplayFor(modelItem => item.Vendedor.Nome)</td> <!-- Exibindo o nome do vendedor -->
+                    <td>@Html.DisplayFor(modelItem => item.Carro.Modelo)</td> <!-- Exibindo o modelo do carro -->
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning btn-sm">Editar</a>
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info btn-sm">Detalhes</a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Excluir</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

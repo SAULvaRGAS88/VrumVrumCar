@@ -1,42 +1,52 @@
 ﻿@model VrumVrumCar.Models.Vendedor
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalhes do Vendedor";
 }
 
-<h1>Details</h1>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h1 class="text-center">@ViewData["Title"]</h1>
+            <hr />
 
-<div>
-    <h4>Vendedor</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Nome)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Nome)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DataAdmissao)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DataAdmissao)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Matricula)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Matricula)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Salario)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Salario)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+            <div class="border p-3 rounded bg-light">
+                <h4>Informações do Vendedor</h4>
+                <dl class="row">
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.Nome)
+                    </dt>
+                    <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.Nome)
+                    </dd>
+
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.DataAdmissao)
+                    </dt>
+                    <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.DataAdmissao)
+                    </dd>
+
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.Matricula)
+                    </dt>
+                    <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.Matricula)
+                    </dd>
+
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.Salario)
+                    </dt>
+                    <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.Salario)
+                    </dd>
+                </dl>
+            </div>
+
+            <div class="text-center mt-4">
+                <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary">Editar</a>
+                <a asp-action="Index" class="btn btn-secondary ml-2">Voltar para a Lista</a>
+            </div>
+        </div>
+    </div>
 </div>
